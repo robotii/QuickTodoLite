@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 Peter Arthur
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.jetpad.quicktodofree" android:versionCode="13" android:versionName="2.0.1">
+    <application android:icon="@drawable/app_todo"
+        android:label="@string/app_name"
+    >
+        <provider android:name="TodoProvider" android:authorities="org.jetpad.provider.QuickTodoFree"/>
+
+        <activity android:name="ItemsList" android:label="@string/title_notes_list">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.jetpad.todof" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.jetpad.todof" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="TodoEditor"
+            android:theme="@android:style/Theme.Light"
+            android:label="@string/title_note"
+        >
+            <!-- This filter says that we can view or edit the data of
+                 a single note -->
+            <intent-filter android:label="@string/resolve_edit" android:icon="@android:drawable/ic_menu_edit">
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="org.jetpad.quicktodofree.action.EDIT_NOTE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.jetpad.todof" />
+            
+<action android:name="org.jetpad.quicktodofree.VIEW_REMINDER"></action>
+</intent-filter>
+
+            <!-- This filter says that we can create a new note inside
+                 of a directory of notes. -->
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.jetpad.todof" />
+            </intent-filter>
+
+			<intent-filter>
+              <action android:name="android.intent.action.CREATE_SHORTCUT" />
+              <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        
+		
+        
+    <activity android:name="TodoAlarm"><intent-filter><category android:name="android.intent.category.DEFAULT"></category>
+<action android:name="android.intent.action.RUN"></action>
+</intent-filter>
+</activity>
+<service android:name="AlarmService" android:enabled="true">
+<intent-filter><action android:name="org.jetpad.quicktodofree.UPDATE_ALARM"></action>
+
+<action android:name="org.jetpad.quicktodofree.DELETE_ALARM"></action>
+
+<data android:mimeType="vnd.android.cursor.item/vnd.jetpad.todof"></data>
+
+<data android:mimeType="vnd.android.cursor.dir/vnd.jetpad.todof"></data>
+</intent-filter>
+</service>
+<receiver android:name="BootHelper"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"></action>
+</intent-filter>
+</receiver>
+<activity android:name="Preferences"></activity>
+<activity android:name="DataManager"></activity>
+</application>
+<uses-sdk android:minSdkVersion="3"></uses-sdk>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+
+
+<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"></uses-permission>
+<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+</manifest>
+

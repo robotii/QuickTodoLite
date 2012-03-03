@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+android:id="@+id/LinearLayout01"  
+android:layout_height="fill_parent" 
+android:layout_width="fill_parent" 
+android:orientation="vertical"
+>
+<LinearLayout
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:background="#aaaaff">
+<CheckBox
+android:id="@+id/completed" 
+android:layout_gravity="top" 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" android:layout_weight="17"
+android:background="#aaaaff"
+/>
+<EditText
+android:id="@+id/title"
+android:background="#aaaaff"
+android:gravity="top"
+android:layout_height="wrap_content" 
+android:layout_gravity="top"
+android:layout_width="fill_parent" android:layout_weight="3"
+android:inputType="textCapSentences"/>
+</LinearLayout>
+<TableRow 
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+>
+<ScrollView
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+android:layout_weight="1">
+<LinearLayout
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+android:orientation="vertical" 
+>
+<view
+class="org.jetpad.quicktodofree.TodoEditor$LinedEditText"
+android:id="@+id/note"
+android:background="@android:color/transparent"
+android:padding="5dip"
+android:scrollbars="vertical"
+android:fadingEdge="vertical"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"
+android:inputType="textCapSentences|textMultiLine"
+/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Due date" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold"></TextView><LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+<Button android:id="@+id/DateButton" android:text="Date"
+android:layout_width="0px"
+android:layout_height="wrap_content"
+android:layout_weight="7"
+style="?android:attr/textAppearanceMedium" android:gravity="center_horizontal|center_vertical"/>
+<Button android:id="@+id/TimeButton" android:text="Time"
+android:layout_width="0px"
+android:layout_height="wrap_content"
+android:layout_weight="4"
+style="?android:attr/textAppearanceMedium" android:gravity="center_horizontal|center_vertical"/>
+</LinearLayout>
+</LinearLayout>
+</ScrollView>
+</TableRow>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/HasDueDate" android:text="Has Due Date"></CheckBox>
+</LinearLayout>

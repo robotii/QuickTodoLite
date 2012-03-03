@@ -1,0 +1,14 @@
+<PreferenceScreen  
+     xmlns:android="http://schemas.android.com/apk/res/android"> 
+          <PreferenceCategory android:title="Notifications"
+android:summary="Modify Notification settings">   
+     <CheckBoxPreference  
+         android:key="notifySound"  
+         android:title="Notification Sounds"  
+         android:summary="Use sounds for notifications" />
+     <CheckBoxPreference  
+         android:key="notifyVibrate"  
+         android:title="Notification Vibrate"  
+         android:summary="If checked, task notifications cause vibrate." />
+</PreferenceCategory>
+</PreferenceScreen>
