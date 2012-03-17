@@ -93,7 +93,7 @@
 <activity android:name="Preferences"></activity>
 <activity android:name="DataManager"></activity>
 </application>
-<uses-sdk android:minSdkVersion="3"></uses-sdk>
+<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="11"></uses-sdk>
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
 
 
